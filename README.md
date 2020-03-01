@@ -2,7 +2,7 @@
 
 実行ファイルはmakeで生成
 
-行列ファイルはcreate_hinesフォルダでmakeをしてから、creat.shを実行して生成
+行列ファイルはcreate_hinesフォルダでmakeをしてから、create.shを実行して生成
 
 
 実行コマンドは以下
