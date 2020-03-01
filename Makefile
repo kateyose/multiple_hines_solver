@@ -1,0 +1,127 @@
+all: a1d1 a1d2 a1d3 a1d4 a1d54 a1d64 a1d58 a1d68 a1d2n a1d54n a1d64n a1d58n a1d68n a2d1 a2d2 a2d3 a2d4 a2d54 a2d64 a2d58 a2d68 a2d2n a2d54n a2d64n a2d58n a2d68n a34d1 a34d2 a34d3 a34d4 a34d54 a34d64 a34d2n a34d54n a34d64n a38d1 a38d2 a38d3 a38d4 a38d58 a38d68 a38d2n a38d58n a38d68n a44d4 a44d64 a44d64n 
+
+CC=gcc
+CFLAGS=-lm -O3 -fopenmp
+NUMAFLAG=-DNUMA -lnuma
+SIMDFLAG=-march=core-avx2
+B4=-DBLOCK_SIZE_D=4 -DBLOCK_SIZE_A=4
+B8=-DBLOCK_SIZE_D=8 -DBLOCK_SIZE_A=8
+BASES=main.c utility.c core_variable.c 
+BASES_PLUS_H=$(BASES) utility.h core_variable.h
+
+
+a1d1: a1d1.c $(BASES_PLUS_H)
+	$(CC) a1d1.c d1.c a1.c $(BASES) -o a1d1 $(CFLAGS)
+a1d2: a1d2.c $(BASES_PLUS_H)
+	$(CC) a1d2.c d2.c pu.c a1.c $(BASES) -o a1d2 $(CFLAGS)
+a1d3: a1d3.c $(BASES_PLUS_H)
+	$(CC) a1d3.c d3.c pu.c a1.c $(BASES) -o a1d3 $(CFLAGS)
+a1d4: a1d4.c $(BASES_PLUS_H)
+	$(CC) a1d4.c d4.c pu.c a1.c $(BASES) -o a1d4 $(CFLAGS)
+a1d54: a1d5.c $(BASES_PLUS_H)
+	$(CC) a1d5.c d5.c pu.c a1.c $(BASES) -o a1d54 $(CFLAGS) $(B4)
+a1d58: a1d5.c $(BASES_PLUS_H)
+	$(CC) a1d5.c d5.c pu.c a1.c $(BASES) -o a1d58 $(CFLAGS) $(B8)
+a1d64: a1d6.c $(BASES_PLUS_H)
+	$(CC) a1d6.c d6.c pu.c a1.c $(BASES) -o a1d64 $(CFLAGS) $(B4)
+a1d68: a1d6.c $(BASES_PLUS_H)
+	$(CC) a1d6.c d6.c pu.c a1.c $(BASES) -o a1d68 $(CFLAGS) $(B8)
+a1d2n: a1d2.c $(BASES_PLUS_H)
+	$(CC) a1d2.c d2.c pu.c a1.c $(BASES) -o a1d2n $(CFLAGS) $(NUMAFLAG)
+a1d54n: a1d5.c $(BASES_PLUS_H)
+	$(CC) a1d5.c d5.c pu.c a1.c $(BASES) -o a1d54n $(CFLAGS) $(NUMAFLAG) $(B4)
+a1d58n: a1d5.c $(BASES_PLUS_H)
+	$(CC) a1d5.c d5.c pu.c a1.c $(BASES) -o a1d58n $(CFLAGS) $(NUMAFLAG) $(B8)
+a1d64n: a1d6.c $(BASES_PLUS_H)
+	$(CC) a1d6.c d6.c pu.c a1.c $(BASES) -o a1d64n $(CFLAGS) $(NUMAFLAG) $(B4)
+a1d68n: a1d6.c $(BASES_PLUS_H)
+	$(CC) a1d6.c d6.c pu.c a1.c $(BASES) -o a1d68n $(CFLAGS) $(NUMAFLAG) $(B8)
+
+a2d1: a2d1.c $(BASES_PLUS_H)
+	$(CC) a2d1.c d1.c a2.c $(BASES) -o a2d1 $(CFLAGS)
+a2d2: a2d2.c $(BASES_PLUS_H)
+	$(CC) a2d2.c d2.c pu.c a2.c $(BASES) -o a2d2 $(CFLAGS)
+a2d3: a2d3.c $(BASES_PLUS_H)
+	$(CC) a2d3.c d3.c pu.c a2.c $(BASES) -o a2d3 $(CFLAGS)
+a2d4: a2d4.c $(BASES_PLUS_H)
+	$(CC) a2d4.c d4.c pu.c a2.c $(BASES) -o a2d4 $(CFLAGS)
+a2d54: a2d5.c $(BASES_PLUS_H)
+	$(CC) a2d5.c d5.c pu.c a2.c $(BASES) -o a2d54 $(CFLAGS) $(B4)
+a2d58: a2d5.c $(BASES_PLUS_H)
+	$(CC) a2d5.c d5.c pu.c a2.c $(BASES) -o a2d58 $(CFLAGS) $(B8)
+a2d64: a2d6.c $(BASES_PLUS_H)
+	$(CC) a2d6.c d6.c pu.c a2.c $(BASES) -o a2d64 $(CFLAGS) $(B4)
+a2d68: a2d6.c $(BASES_PLUS_H)
+	$(CC) a2d6.c d6.c pu.c a2.c $(BASES) -o a2d68 $(CFLAGS) $(B8)
+a2d2n: a2d2.c $(BASES_PLUS_H)
+	$(CC) a2d2.c d2.c pu.c a2.c $(BASES) -o a2d2n $(CFLAGS) $(NUMAFLAG)
+a2d54n: a2d5.c $(BASES_PLUS_H)
+	$(CC) a2d5.c d5.c pu.c a2.c $(BASES) -o a2d54n $(CFLAGS) $(NUMAFLAG) $(B4)
+a2d58n: a2d5.c $(BASES_PLUS_H)
+	$(CC) a2d5.c d5.c pu.c a2.c $(BASES) -o a2d58n $(CFLAGS) $(NUMAFLAG) $(B8)
+a2d64n: a2d6.c $(BASES_PLUS_H)
+	$(CC) a2d6.c d6.c pu.c a2.c $(BASES) -o a2d64n $(CFLAGS) $(NUMAFLAG) $(B4)
+a2d68n: a2d6.c $(BASES_PLUS_H)
+	$(CC) a2d6.c d6.c pu.c a2.c $(BASES) -o a2d68n $(CFLAGS) $(NUMAFLAG) $(B8)
+
+a34d1: a3d1.c $(BASES_PLUS_H)
+	$(CC) a3d1.c d1.c a3.c $(BASES) -o a34d1 $(CFLAGS) $(B4)
+a34d2: a3d2.c $(BASES_PLUS_H)
+	$(CC) a3d2.c d2.c pu.c a3.c $(BASES) -o a34d2 $(CFLAGS) $(B4)
+a34d3: a3d3.c $(BASES_PLUS_H)
+	$(CC) a3d3.c d3.c pu.c a3.c $(BASES) -o a34d3 $(CFLAGS) $(B4)
+a34d4: a3d4.c $(BASES_PLUS_H)
+	$(CC) a3d4.c d4.c pu.c a3.c $(BASES) -o a34d4 $(CFLAGS) $(B4)
+a34d54: a3d5.c $(BASES_PLUS_H)
+	$(CC) a3d5.c d5.c pu.c a3.c $(BASES) -o a34d54 $(CFLAGS) $(B4)
+a34d64: a3d6.c $(BASES_PLUS_H)
+	$(CC) a3d6.c d6.c pu.c a3.c $(BASES) -o a34d64 $(CFLAGS) $(B4)
+a34d2n: a3d2.c $(BASES_PLUS_H)
+	$(CC) a3d2.c d2.c pu.c a3.c $(BASES) -o a34d2n $(CFLAGS) $(NUMAFLAG) $(B4)
+a34d54n: a3d5.c $(BASES_PLUS_H)
+	$(CC) a3d5.c d5.c pu.c a3.c $(BASES) -o a34d54n $(CFLAGS) $(NUMAFLAG) $(B4)
+a34d64n: a3d6.c $(BASES_PLUS_H)
+	$(CC) a3d6.c d6.c pu.c a3.c $(BASES) -o a34d64n $(CFLAGS) $(NUMAFLAG) $(B4)
+
+a38d1: a3d1.c $(BASES_PLUS_H)
+	$(CC) a3d1.c d1.c a3.c $(BASES) -o a38d1 $(CFLAGS) $(B8)
+a38d2: a3d2.c $(BASES_PLUS_H)
+	$(CC) a3d2.c d2.c pu.c a3.c $(BASES) -o a38d2 $(CFLAGS) $(B8)
+a38d3: a3d3.c $(BASES_PLUS_H)
+	$(CC) a3d3.c d3.c pu.c a3.c $(BASES) -o a38d3 $(CFLAGS) $(B8)
+a38d4: a3d4.c $(BASES_PLUS_H)
+	$(CC) a3d4.c d4.c pu.c a3.c $(BASES) -o a38d4 $(CFLAGS) $(B8)
+a38d58: a3d5.c $(BASES_PLUS_H)
+	$(CC) a3d5.c d5.c pu.c a3.c $(BASES) -o a38d58 $(CFLAGS) $(B8)
+a38d68: a3d6.c $(BASES_PLUS_H)
+	$(CC) a3d6.c d6.c pu.c a3.c $(BASES) -o a38d68 $(CFLAGS) $(B8)
+a38d2n: a3d2.c $(BASES_PLUS_H)
+	$(CC) a3d2.c d2.c pu.c a3.c $(BASES) -o a38d2n $(CFLAGS) $(NUMAFLAG) $(B8)
+a38d58n: a3d5.c $(BASES_PLUS_H)
+	$(CC) a3d5.c d5.c pu.c a3.c $(BASES) -o a38d58n $(CFLAGS) $(NUMAFLAG) $(B8)
+a38d68n: a3d6.c $(BASES_PLUS_H)
+	$(CC) a3d6.c d6.c pu.c a3.c $(BASES) -o a38d68n $(CFLAGS) $(NUMAFLAG) $(B8)
+
+
+a44d4: a4d4.c $(BASES_PLUS_H)
+	$(CC) a4d4.c pu.c d4.c a4.c $(BASES) -o a44d4 $(CFLAGS) $(B4) $(SIMDFLAG)
+a44d64: a4d6.c $(BASES_PLUS_H)
+	$(CC) a4d6.c pu.c d6.c a4.c $(BASES) -o a44d64 $(CFLAGS) $(B4) $(SIMDFLAG)
+a44d64n: a4d6.c $(BASES_PLUS_H)
+	$(CC) a4d6.c pu.c d6.c a4.c $(BASES) -o a44d64n $(CFLAGS) $(NUMAFLAG) $(B4) $(SIMDFLAG)
+
+clean:
+	rm a1d1 a1d2 a1d3 a1d4 a1d54 a1d64 a1d58 a1d68 a1d2n a1d54n a1d64n a1d58n a1d68n a2d1 a2d2 a2d3 a2d4 a2d54 a2d64 a2d58 a2d68 a2d2n a2d54n a2d64n a2d58n a2d68n a34d1 a34d2 a34d3 a34d4 a34d54 a34d64 a34d2n a34d54n a34d64n a38d1 a38d2 a38d3 a38d4 a38d58 a38d68 a38d2n a38d58n a38d68n a44d4 a44d64 a44d64n 
+
+#a6d1: a6d1.c $(BASES_PLUS_H)
+#	$(CC) a6d1.c d1.c a6.c $(BASES) -o a6d1 $(CFLAGS)
+#a6d2: a6d2.c $(BASES_PLUS_H)
+#	$(CC) a6d2.c pu.c d2.c a6.c $(BASES) -o a6d2 $(CFLAGS) -lnuma
+#a6d3: a6d3.c $(BASES_PLUS_H)
+#	$(CC) a6d3.c pu.c d3.c a6.c $(BASES) -o a6d3 $(CFLAGS)
+#a6d4: a6d4.c $(BASES_PLUS_H)
+#	$(CC) a6d4.c pu.c d4.c a6.c $(BASES) -o a6d4 $(CFLAGS)
+#a6d5: a6d5.c $(BASES_PLUS_H)
+#	$(CC) a6d5.c pu.c d5.c a6.c $(BASES) -o a6d5 $(CFLAGS) -lnuma
+#a6d6: a6d6.c $(BASES_PLUS_H)
+#	$(CC) a6d6.c pu.c d6.c a6.c $(BASES) -o a6d6 $(CFLAGS) -lnuma
